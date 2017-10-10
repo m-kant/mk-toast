@@ -1,4 +1,4 @@
-Transpiling Sass and Less into CSS
+Transpiling Sass and Less into CSS in Visual Studio Code
 https://code.visualstudio.com/docs/languages/css
 
 1. Create tasks.json
