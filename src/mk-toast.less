@@ -1,0 +1,85 @@
+.mk-toast-board{
+    
+    @color-default: #eee;
+    @color-danger:  #B93A32;
+    @color-ok:      #88B04B;
+    @color-warning: #D8AE47;
+    @color-info:    #578CA9;
+    @width:         300px;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: @width;
+    z-index: 1002; // above leaflet attribution
+    
+    // board positioning
+    &.mk-bottom { bottom: 0; }
+    &.mk-top    { top: 0; }
+    &.mk-left   { left: 0; }
+    &.mk-right  { right: 0; }
+    &.mk-center { left: 50%; margin-left: -1*@width/2; } 
+
+
+    // Message ===
+    .mk-message-wrapper{
+        transition: all .3s;
+        overflow: hidden;
+    }
+    
+    .mk-message{
+        background-color: @color-default;
+        border: 1px solid darken(@color-default,10%);
+        box-shadow: 2px 2px 10px rgba(0,0,0,.2);
+        margin: 10px;
+        position: relative;
+
+        &>h2,
+        .mk-message-title{
+            font-size: inherit;
+            margin:0;
+            padding: 5px 10px;
+            background-color: darken(@color-default,5%);
+        }
+        .mk-message-body{
+            padding: 10px;
+            max-height: 200px;
+            overflow: auto;
+        }
+
+        .mk-close{
+            padding: 0px;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            position: absolute;
+            top: 0;
+            right: 2px;
+            font-size: 25px;
+            line-height: 25px;
+
+            &:after{
+                content: '\00D7'
+            }
+        }        
+
+        &.mk-danger     { .colorize(@color-danger); }
+        &.mk-success    { .colorize(@color-ok); }
+        &.mk-warning    { .colorize(@color-warning); }
+        &.mk-info       { .colorize(@color-info); }
+    }
+    &.mk-bottom .mk-message{
+        margin-top:0;
+    }
+}
+
+// Mixins ===
+
+.colorize(@color) {
+    background-color: @color;
+    border-color: darken(@color,10%);
+    color: #fff;
+    .mk-message-title{
+        background-color: darken(@color,5%);
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+	<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- MK libraries -->
+	<link rel="stylesheet" href="../dist/mk-toast.css">
+	<script charset='UTF-8' src='../src/mk-toast.js'></script>
+
+	<title>mk-toast Demo</title>
+
+</head>
+
+<body>
+<div class="container">
+
+
+	<h1>mk-toast</h1>
+	<button onclick="print()">echo</button>
+	
+<script id="textEl">
+bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo 
+fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds 
+bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo 
+fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds
+</script>
+
+	  <div class="mk-toast-board mk-left mk-bottom">
+		<div class="mk-message mk-success">
+			<h2 class="mk-message-title">success message</h2>
+			<div class="mk-message-body">this is test message of toast</div>
+			<div class="mk-close"></div>
+		</div>
+		<div class="mk-message mk-danger">
+			<h2 class="mk-message-title">danger message</h2>
+			<div class="mk-message-body">this is test message of toast.this is test message of toast.this is test message of toast.</div>
+		</div>
+		<div class="mk-message mk-warning">
+			<h2 class="mk-message-title">warning message</h2>
+			<div class="mk-message-body">this is test message of toast</div>
+		</div>
+		<div class="mk-message mk-hide">
+			<h2 class="mk-message-title">default message</h2>
+			<div class="mk-message-body">this is test message of toast</div>
+		</div>
+		<div class="mk-message mk-info">
+			<h2 class="mk-message-title">info message</h2>
+			<div class="mk-message-body">this is test message of toast</div>
+		</div>
+	</div>  
+	<script>
+		// const mktoast = new Mktoast();
+		mktoast.echo(textEl.innerHTML,'title');
+		setTimeout(()=>{mktoast.echo('dududu');}, 1000);
+
+		function print(){
+			mktoast.info(textEl.innerHTML,'info', {duration: 5000});
+		}
+	</script>
+</div><!-- .container -->
+</body>
+</html>
