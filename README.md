@@ -1,2 +1,2 @@
 # mk-toast
-Notifier. Library agnostic. Smooth CSS animation with no twitching.
+Library agnostic notifier. Smooth CSS animation with no twitching.
