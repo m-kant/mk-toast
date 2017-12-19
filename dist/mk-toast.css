@@ -93,3 +93,8 @@
 .mk-toast-board.mk-bottom .mk-message {
   margin-top: 0;
 }
+@media (max-width: 375px) {
+  .mk-toast-board {
+    width: 100%;
+  }
+}

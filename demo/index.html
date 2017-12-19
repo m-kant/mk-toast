@@ -13,7 +13,7 @@
 
 	<!-- MK libraries -->
 	<link rel="stylesheet" href="../dist/mk-toast.css">
-	<script charset='UTF-8' src='../src/mk-toast.js'></script>
+	<script charset='UTF-8' src='../dist/mk-toast.js'></script>
 
 	<title>mk-toast Demo</title>
 
@@ -24,14 +24,18 @@
 
 
 	<h1>mk-toast</h1>
-	<button onclick="print()">echo</button>
+	<button onclick="print('echo')">echo</button>
+	<button onclick="print('info')">info</button>
+	<button onclick="print('success')">success</button>
+	<button onclick="print('danger')">danger</button>
+	<button onclick="print('warning')">warning</button>
 	
-<script id="textEl">
-bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo 
-fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds 
-bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo 
-fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds
-</script>
+	<script id="textEl" type="text/template">
+		bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo 
+		fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds 
+		bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo 
+		fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds
+	</script>
 
 	  <div class="mk-toast-board mk-left mk-bottom">
 		<div class="mk-message mk-success">
@@ -59,10 +63,11 @@ fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds
 	<script>
 		// const mktoast = new Mktoast();
 		mktoast.echo(textEl.innerHTML,'title');
-		setTimeout(()=>{mktoast.echo('dududu');}, 1000);
+		setTimeout( function(){mktoast.echo('dududu');}, 1000);
 
-		function print(){
-			mktoast.info(textEl.innerHTML,'info', {duration: 5000});
+		function print(type){
+			if(!type) type = 'info'
+			mktoast[type](textEl.innerHTML,type, {duration: 5000});
 		}
 	</script>
 </div><!-- .container -->

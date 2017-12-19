@@ -150,3 +150,6 @@ var mktoast = {
 		return res;
 	},
 };
+
+
+export default mktoast;
