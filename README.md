@@ -19,7 +19,7 @@ Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Sm
 ```JavaScript
 var mktoast = require('mk-toast');
 // or 
-import mktoast from 'mk-toast/vue';
+import mktoast from 'mk-toast';
 ```
 Don't forget to include css styles
 
