@@ -1,5 +1,5 @@
 {
-  "name": "mktoast",
+  "name": "mk-toast",
   "version": "1.0.0",
   "description": "Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Smooth CSS animation with no twitching.",
   "main": "dist/mk-toast.js",

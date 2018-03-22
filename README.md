@@ -19,14 +19,14 @@ Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Sm
 ```JavaScript
 var mktoast = require('mk-toast');
 // or 
-import mktoast from 'mktoast/vue';
+import mktoast from 'mk-toast/vue';
 ```
 Don't forget to include css styles
 
 ### Vue.js
 To use it anywhere inside components (without inclusion in every file), add in main.js
 ```JavaScript
-import mktoast from 'mktoast/vue';
+import mktoast from 'mk-toast/vue';
 Vue.use(mktoast);
 ```
 In App.vue, in "styles" section:
@@ -39,7 +39,7 @@ this.$mktoast.echo('your message');
 ```
 To use it in a router or vuex, which does not have vue context, use es6 approach: | 
 ```JavaScript
-import mktoast from 'mktoast/es6';
+import mktoast from 'mk-toast';
 mktoast.echo('your message');
 ```
 
@@ -56,7 +56,8 @@ mktoast.print(options);
 ```
 
 ## Options
---- | -- | -- | --
+option | type | default | comment
+------ | ---- | ------- | -------
 position | string | 'right bottom' | Positioning of mktoast: left|center|right top|bottom
 duration | milliseconds | 5000 | Time to keep toast message on screen
 container | DOMElement | 'empty' | Parent DOMElement of toast messages, default is body
