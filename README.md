@@ -1,6 +1,8 @@
 # mk-toast
 Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Smooth CSS animation with no twitching.
+
 ![screenshot](http://mkant.ru/mink-js/mk-toast/assets/mktoast-demo.gif)
+
 [Demo and details](http://mkant.ru/mink-js/mk-toast)
 
 
@@ -24,7 +26,7 @@ import mktoast from 'mk-toast';
 Don't forget to include css styles
 
 ### Vue.js
-To use it anywhere inside components (without inclusion in every file), add in main.js
+To use it anywhere inside components (without inclusion in every file), add in main.js:
 ```JavaScript
 import mktoast from 'mk-toast/vue';
 Vue.use(mktoast);
@@ -37,7 +39,7 @@ Inside vue components use this.$mktoast instead of mktoast:
 ```JavaScript
 this.$mktoast.echo('your message');
 ```
-To use it in a router or vuex, which does not have vue context, use es6 approach: | 
+To use it in a router or vuex, which does not have vue context, use es6 approach:
 ```JavaScript
 import mktoast from 'mk-toast';
 mktoast.echo('your message');
