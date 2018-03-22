@@ -7,67 +7,165 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-	<link rel="apple-touch-icon" href="./apple-touch-icon.png">
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!-- MK libraries -->
-	<link rel="stylesheet" href="../dist/mk-toast.css">
-	<script charset='UTF-8' src='../dist/mk-toast.js'></script>
+	<link rel="stylesheet" href="../dist/mk-toast.min.css">
+	<script charset='UTF-8' src='../dist/mk-toast.min.js'></script>
+	<script charset='UTF-8' src='assets/random.js'></script>
 
-	<title>mk-toast Demo</title>
-
+	<title>mktoast Demo</title>
+	<style>
+		.demo-board{ width: 100%; position:initial;}
+		.demo-board .mk-message{ min-width: 300px; max-width: 350px; display: inline-block; }
+		.form-control{width: auto; display: inline-block;}
+	</style>
 </head>
 
 <body>
 <div class="container">
+	<br />
+	<a class="btn btn-default" href="http://mkant.ru/mink-js/"><< Demos</a>
 
+	<h1>mktoast</h1>
+	<p>
+		Notifier to display different types of stacked messages at the side of screen
+	</p>
+	<p>
+		&bull; <b>Library agnostic</b>
+		&bull; <b>Vue.js connector</b> - you can use it anywhere in components and in vue-router and vuex
+		&bull; Compact 
+		&bull; Smooth css animation without jumps on manual close 
+	</p>
 
-	<h1>mk-toast</h1>
-	<button onclick="print('echo')">echo</button>
-	<button onclick="print('info')">info</button>
-	<button onclick="print('success')">success</button>
-	<button onclick="print('danger')">danger</button>
-	<button onclick="print('warning')">warning</button>
+	<p>
+		<a class="btn btn-default" href="https://github.com/m-kant/mk-toast">View at GIT Hub</a>
+		<a class="btn btn-default" href="https://www.npmjs.com/package/mk-toast">View at NPM</a>
+	</p>
+
+	<h2>Try it: </h2>
+	<p>
+		<span class='btn-group'>
+			<button onclick="print('echo')" class="btn btn-default">echo</button>
+			<button onclick="print('info')" class="btn btn-default">info</button>
+			<button onclick="print('success')" class="btn btn-default">success</button>
+			<button onclick="print('danger')" class="btn btn-default">danger</button>
+			<button onclick="print('warning')" class="btn btn-default">warning</button>
+		</span>
+		
+		position:
+		<select id='xposition' class="form-control">
+			<option value=''>default</option>
+			<option>left</option>
+			<option>center</option>
+			<option>right</option>
+		</select>
+		<select id="yposition" class="form-control">
+			<option value=''>default</option>
+			<option>bottom</option>
+			<option>top</option>
+		</select>
+		
+		duration:
+		<input id='durationEl' type='text' class='form-control' value="3000" size='4' />
+	</p>
 	
-	<script id="textEl" type="text/template">
-		bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo 
-		fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds 
-		bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo 
-		fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds bobobo fdgsfds
-	</script>
+	<h2>Installation</h2>
+	<pre> npm install --save mk-toast </pre>
+	
+	<h2>Inclusion</h2>
+	<h3>CommonJS</h3>
+	<pre> var mktoast = require('mk-toast'); </pre>
+	
+	<h3>Browser</h3>
+	<pre>
+&lt;link  href="nodes_modules/mk-toast/dist/mk-toast.min.css" rel="stylesheet">
+&lt;script src="nodes_modules/mk-toast/dist/mk-toast.min.js"></script></pre>
 
-	  <div class="mk-toast-board mk-left mk-bottom">
+	<h3>Vue.js</h3>
+	To use it anywhere inside components (without inclusion in every file), add in main.js
+	<pre>import mktoast from 'mktoast/vue';
+Vue.use(mktoast);</pre>
+	
+	In App.vue, in "styles" section:
+	<pre>@import "../node_modules/mk-toast/dist/mk-toast.css";</pre>
+
+	Inside vue components use <span class="badge">this.$mktoast</span> instead of <span class="badge">mktoast</span>:
+	<pre>this.$mktoast.echo('your message');</pre>
+	
+	To use it in a router or vuex, which does not have vue context, use es6 approach:	
+<pre>import mktoast from 'mktoast/es6';
+
+mktoast.echo('your message');</pre>
+	
+	<h2>Usage</h2>
+	  <div class="mk-toast-board demo-board">
+		<div class="mk-message mk-default">
+			<h2 class="mk-message-title">default message</h2>
+			<div class="mk-message-body">mktoast.echo(message [,title] [,options]);</div>
+		</div>
 		<div class="mk-message mk-success">
 			<h2 class="mk-message-title">success message</h2>
-			<div class="mk-message-body">this is test message of toast</div>
+			<div class="mk-message-body">mktoast.success(message [,title] [,options]);</div>
 			<div class="mk-close"></div>
 		</div>
 		<div class="mk-message mk-danger">
 			<h2 class="mk-message-title">danger message</h2>
-			<div class="mk-message-body">this is test message of toast.this is test message of toast.this is test message of toast.</div>
+			<div class="mk-message-body">mktoast.danger(message [,title] [,options]);</div>
 		</div>
 		<div class="mk-message mk-warning">
 			<h2 class="mk-message-title">warning message</h2>
-			<div class="mk-message-body">this is test message of toast</div>
-		</div>
-		<div class="mk-message mk-hide">
-			<h2 class="mk-message-title">default message</h2>
-			<div class="mk-message-body">this is test message of toast</div>
+			<div class="mk-message-body">mktoast.warning(message [,title] [,options]);</div>
 		</div>
 		<div class="mk-message mk-info">
 			<h2 class="mk-message-title">info message</h2>
-			<div class="mk-message-body">this is test message of toast</div>
+			<div class="mk-message-body">mktoast.info(message [,title] [,options]);</div>
 		</div>
-	</div>  
+		<div class="mk-message mk-default">
+			<h2 class="mk-message-title">most universal usage</h2>
+			<div class="mk-message-body">mktoast.print(options);</div>
+		</div>
+	</div>
+
+	<h3>Options</h3>
+	<table class="table table-striped">
+		<thead><tr><th>option</th><th>type</th><th>default</th><th>comment</th></tr></thead>
+		<tbody>
+			<tr><td>position</td><td>string</td><td>'right bottom'</td><td>Positioning of mktoast: left|center|right top|bottom</td></tr>
+			<tr><td>duration</td><td>milliseconds</td><td>5000</td><td>Time to keep toast message on screen</td></tr>
+			<tr><td>container</td><td>DOMElement</td><td>'empty'</td><td>Parent DOMElement of toast messages, default is body</td></tr>
+			<tr><td>type</td><td>string</td><td>'default'</td><td>Used only in mktoast.print(). Type of message: default|info|danger|success|warning. </td></tr>
+			<tr><td>message</td><td>string</td><td>'empty'</td><td>Used only in mktoast.print(). String or html code of message. </td></tr>
+			<tr><td>title</td><td>string</td><td>undefined</td><td>Used only in mktoast.print(). String of toast title. </td></tr>
+		</tbody>
+	</table>
+
+
 	<script>
-		// const mktoast = new Mktoast();
-		mktoast.echo(textEl.innerHTML,'title');
-		setTimeout( function(){mktoast.echo('dududu');}, 1000);
+		mktoast.success('mktoast notifier is working','WOW!');
+		setTimeout( function(){mktoast.echo('It can show different types of messages, with or without title');}, 1000);
 
 		function print(type){
-			if(!type) type = 'info'
-			mktoast[type](textEl.innerHTML,type, {duration: 5000});
+			if(!type) type = 'default';
+			var options = {
+				duration: durationEl.value || 3000,
+				position: xposition.value+' '+yposition.value
+			};
+			mktoast[type](getText(),type, options);
+		}
+		
+		function getText(){
+			var t = [
+				['This is a message','It is a message','It\'s a notification','This is a kind of message','Here is message','You reading kind of notification',],
+				['intended to attract users attention','to attract attention','used to show important information','suitable to show some information','with smooth css animation','suitable for mobile devices',],
+			];
+			var i = random.int(1,3);
+			var res = '';
+			while(i){
+				res += t.map( function(texts){ return random.element(texts) } ).join(' ')+'. ';
+				i--;
+			}
+			return res;
 		}
 	</script>
 </div><!-- .container -->

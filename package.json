@@ -1,17 +1,19 @@
 {
   "name": "mktoast",
   "version": "1.0.0",
-  "description": "Notifier to show different types of stacked messages at the side of screen",
+  "description": "Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Smooth CSS animation with no twitching.",
   "main": "dist/mk-toast.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
   },
   "keywords": [
     "notify",
     "toast",
     "toastr",
     "notification",
-    "message"
+    "message",
+    "UI"
   ],
   "author": "m.kantemirov",
   "license": "MIT",

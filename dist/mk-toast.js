@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 /**
  * Notifier to show different types of stacked messages at the side of screen
  * @type mktoast
@@ -125,18 +127,33 @@ var mktoast = {
     // SYNTAX SUGAR, messages with predefined styles ---
 
     echo: function echo(message, title, options) {
+        if (!options && (typeof title === 'undefined' ? 'undefined' : _typeof(title)) === 'object') {
+            options = title;title = null;
+        }
         return this.print(this._weld(options, { message: message, title: title, type: 'default' }));
     },
     danger: function danger(message, title, options) {
+        if (!options && (typeof title === 'undefined' ? 'undefined' : _typeof(title)) === 'object') {
+            options = title;title = null;
+        }
         return this.print(this._weld(options, { message: message, title: title, type: 'danger' }));
     },
     success: function success(message, title, options) {
+        if (!options && (typeof title === 'undefined' ? 'undefined' : _typeof(title)) === 'object') {
+            options = title;title = null;
+        }
         return this.print(this._weld(options, { message: message, title: title, type: 'success' }));
     },
     warning: function warning(message, title, options) {
+        if (!options && (typeof title === 'undefined' ? 'undefined' : _typeof(title)) === 'object') {
+            options = title;title = null;
+        }
         return this.print(this._weld(options, { message: message, title: title, type: 'warning' }));
     },
     info: function info(message, title, options) {
+        if (!options && (typeof title === 'undefined' ? 'undefined' : _typeof(title)) === 'object') {
+            options = title;title = null;
+        }
         return this.print(this._weld(options, { message: message, title: title, type: 'info' }));
     },
 

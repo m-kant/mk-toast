@@ -44,4 +44,4 @@ gulp.task('build-es5', () =>
         .pipe(gulp.dest('dist'))
 );
 
-gulp.task('build', gulp.parallel('build-es5', 'build-es6', 'less'));
+gulp.task('build', gulp.series( 'clean', gulp.parallel('build-es5', 'build-es6', 'less')) );

@@ -3,7 +3,7 @@
  * Notifier to show different types of stacked messages at the side of screen
  * @type mktoast
  */
-var mktoast = {
+const mktoast = {
 
     defaults: {
         position:   'right bottom', // left|center|right top|bottom
@@ -118,18 +118,23 @@ var mktoast = {
 	// SYNTAX SUGAR, messages with predefined styles ---
 	
     echo(message, title, options){
+        if(!options && typeof title === 'object') { options = title; title = null; }
         return this.print( this._weld(options, {message, title, type: 'default'}) );
     },
     danger(message, title, options){
+        if(!options && typeof title === 'object') { options = title; title = null; }
         return this.print( this._weld(options, {message, title, type: 'danger'}) );
     },
     success(message, title, options){
+        if(!options && typeof title === 'object') { options = title; title = null; }
         return this.print( this._weld(options, {message, title, type: 'success'}) );
     },
     warning(message, title, options){
+        if(!options && typeof title === 'object') { options = title; title = null; }
         return this.print( this._weld(options, {message, title, type: 'warning'}) );
     },
     info(message, title, options){
+        if(!options && typeof title === 'object') { options = title; title = null; }
         return this.print( this._weld(options, {message, title, type: 'info'}) );
     },
 	
