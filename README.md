@@ -58,10 +58,10 @@ mktoast.print(options);
 ## Options
 option | type | default | comment
 ------ | ---- | ------- | -------
-position | string | 'right bottom' | Positioning of mktoast: left|center|right top|bottom
+position | string | 'right bottom' | Positioning of mktoast: left center right  top bottom
 duration | milliseconds | 5000 | Time to keep toast message on screen
 container | DOMElement | 'empty' | Parent DOMElement of toast messages, default is body
-type | string | 'default' | Used only in mktoast.print(). Type of message: default|info|danger|success|warning.
+type | string | 'default' | Used only in mktoast.print(). Types of message: default, info, danger, success, warning.
 message | string | 'empty' | Used only in mktoast.print(). String or html code of message.
 title | string | undefined | Used only in mktoast.print(). String of toast title.
 
