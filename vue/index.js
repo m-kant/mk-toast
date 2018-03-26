@@ -17,7 +17,7 @@ const Toast = {
   install(Vue, toastDefaults = {}) {
     Object.assign(mktoast.defaults, toastDefaults);
     // Vue.component('mktoastStyles', mktoastStyles);
-    Vue.prototype.$toast = mktoast;
+    Vue.prototype.$mktoast = mktoast;
   }
 
 };
