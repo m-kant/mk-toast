@@ -125,6 +125,9 @@ const mktoast = {
         if(!options && typeof title === 'object') { options = title; title = null; }
         return this.print( this._weld(options, {message, title, type: 'danger'}) );
     },
+    error(message, title, options){
+        return this.danger(message, title, options);
+    },
     success(message, title, options){
         if(!options && typeof title === 'object') { options = title; title = null; }
         return this.print( this._weld(options, {message, title, type: 'success'}) );

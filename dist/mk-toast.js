@@ -138,6 +138,9 @@ var mktoast = {
         }
         return this.print(this._weld(options, { message: message, title: title, type: 'danger' }));
     },
+    error: function error(message, title, options) {
+        return this.danger(message, title, options);
+    },
     success: function success(message, title, options) {
         if (!options && (typeof title === 'undefined' ? 'undefined' : _typeof(title)) === 'object') {
             options = title;title = null;
