@@ -1,51 +1,63 @@
 # mk-toast
+
 Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Smooth CSS animation with no twitching.
 
 ![screenshot](https://github.com/m-kant/mk-toast/blob/master/mktoast-demo.gif)
 
 [Demo and details](http://mkant.ru/mink-js/mk-toast)
 
-
 ## Installation
+
 ```bash
- npm install --save mk-toast 
+ npm install --save mk-toast
  ```
+
 ## Inclusion
+
 ### Browser
+
 ```HTML
 <link  href="nodes_modules/mk-toast/dist/mk-toast.min.css" rel="stylesheet">
 <script src="nodes_modules/mk-toast/dist/mk-toast.min.js"></script>
 ```
 
 ### Build systems
+
 ```JavaScript
 var mktoast = require('mk-toast');
 // or 
 import mktoast from 'mk-toast';
 ```
+
 Don't forget to include css styles
 
 ### Vue.js
+
 To use it anywhere inside components (without inclusion in every file), add in main.js:
+
 ```JavaScript
 import mktoast from 'mk-toast/vue';
+import "mk-toast/dist/mk-toast.css";
 Vue.use(mktoast);
 ```
-In App.vue, in "styles" section:
-```CSS
-@import "../node_modules/mk-toast/dist/mk-toast.css";
-```
-Inside vue components use this.$mktoast instead of mktoast:
+
+Then in any vue component you can use `this.$mktoast`:
+
 ```JavaScript
-this.$mktoast.echo('your message');
+this.$mktoast.echo(message [,title] [,options]);
+this.$mktoast.success(message [,title] [,options]);
+...
 ```
-To use it in a router or vuex, which does not have vue context, use es6 approach:
+
+To use it in a router or vuex, which does not have vue context, use regular es6 approach:
+
 ```JavaScript
 import mktoast from 'mk-toast';
 mktoast.echo('your message');
 ```
 
 ## Usage
+
 ```JavaScript
 mktoast.echo(message [,title] [,options]);
 mktoast.success(message [,title] [,options]);
@@ -58,6 +70,7 @@ mktoast.print(options);
 ```
 
 ## Options
+
 option | type | default | comment
 ------ | ---- | ------- | -------
 position | string | 'right bottom' | Positioning of mktoast: left center right  top bottom
