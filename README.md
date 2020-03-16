@@ -1,7 +1,7 @@
 # mk-toast
 Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Smooth CSS animation with no twitching.
 
-![screenshot](http://mkant.ru/mink-js/mk-toast/assets/mktoast-demo.gif)
+![screenshot](https://github.com/m-kant/mk-toast/blob/master/mktoast-demo.gif)
 
 [Demo and details](http://mkant.ru/mink-js/mk-toast)
 
