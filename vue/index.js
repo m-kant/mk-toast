@@ -1,8 +1,6 @@
 /** bridge to Vue.js for easy usage in components
  *  without multiply imports in every file.
- * 
- *  In App.vue in style segment add:
- *    @import "../node_modules/mk-toast/dist/mk-toast.css";
+ *  Intended for build systems as webpack
  * 
  *  In main.js add:
  *    import mktoast from "mk-toast/vue";
@@ -12,18 +10,18 @@
  *    this.$toast.echo(message)
  */
 
-var mktoast = require("../dist/mk-toast");
-// import "../dist/mk-toast.css"; // for webpack
+import mktoast from "../dist/mk-toast.es6";
+import "../dist/mk-toast.css"; // for webpack
 
 var Toast = {
   /* pure ES6 works well in Dev mode, but leads to error during Build.
      so had to change func definition from "func(){}" to "func: function(){}"
      had to remove default argument value "func(a=10)"
   */
-  install: function(Vue, toastDefaults){
+  install: function (Vue, toastDefaults) {
     Object.assign(mktoast.defaults, toastDefaults);
     Vue.prototype.$mktoast = mktoast;
   }
 };
 
-module.exports = Toast;
+export default Toast;

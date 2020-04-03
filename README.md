@@ -2,7 +2,7 @@
 
 Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Smooth CSS animation with no twitching.
 
-![screenshot](https://github.com/m-kant/mk-toast/blob/master/mktoast-demo.gif)
+![screenshot](https://github.com/m-kant/mk-toast/blob/master/mktoast-demo.gif?raw=true)
 
 [Demo and details](http://mkant.ru/mink-js/mk-toast)
 
@@ -24,9 +24,9 @@ Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Sm
 ### Build systems
 
 ```JavaScript
-var mktoast = require('mk-toast');
+var mktoast = require('mk-toast'); // reads es5 version
 // or 
-import mktoast from 'mk-toast';
+import mktoast from 'mk-toast'; // this will take es6 module
 ```
 
 Don't forget to include css styles
@@ -37,9 +37,10 @@ To use it anywhere inside components (without inclusion in every file), add in m
 
 ```JavaScript
 import mktoast from 'mk-toast/vue';
-import "mk-toast/dist/mk-toast.css";
 Vue.use(mktoast);
 ```
+
+You don't have to include styles in this case, 'cos styles are already included in Vue connector.
 
 Then in any vue component you can use `this.$mktoast`:
 
@@ -75,7 +76,7 @@ option | type | default | comment
 ------ | ---- | ------- | -------
 position | string | 'right bottom' | Positioning of mktoast: left center right  top bottom
 duration | milliseconds | 5000 | Time to keep toast message on screen
-container | DOMElement | 'empty' | Parent DOMElement of toast messages, default is body
+container | DOMElement | null | Parent DOMElement of toast messages, default is body
 type | string | 'default' | Used only in mktoast.print(). Types of message: default, info, danger, success, warning.
 message | string | 'empty' | Used only in mktoast.print(). String or html code of message.
 title | string | undefined | Used only in mktoast.print(). String of toast title.

@@ -7,10 +7,10 @@ const mktoast = {
 
     defaults: {
         position:   'right bottom', // left|center|right top|bottom
-        duration:   5000,			// milliseconds
+        duration:    5000,			// milliseconds
         type:       'default',		// default|info|danger|success|warning
         message:    'empty',		// string or html of message
-        container:  null,			// parent DOMElement of toast messages, default is body
+        container:   null,			// parent DOMElement of toast messages, default is body
     },
 
     _getToastBoard(options) {
