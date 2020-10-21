@@ -10,7 +10,7 @@
  *    this.$toast.echo(message)
  */
 
-import mktoast from "../dist/mk-toast.es6";
+import mktoast from "../dist/mk-toast";
 import "../dist/mk-toast.css"; // for webpack
 
 var Toast = {
