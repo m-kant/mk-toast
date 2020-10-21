@@ -10,10 +10,9 @@
  *    this.$toast.echo(message)
  */
 
-import mktoast from "../dist/mk-toast.es6";
-import "../dist/mk-toast.css"; // for webpack
+var mktoast = require("../dist/mk-toast.es6");
 
-const Toast = {
+var Toast = {
   /* pure ES6 works well in Dev mode, but leads to error during Build.
      so had to change func definition from "func(){}" to "func: function(){}"
      had to remove default argument value "func(a=10)"

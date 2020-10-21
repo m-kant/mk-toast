@@ -33,11 +33,10 @@ gulp.task("build-es6", () =>
 // this widget is only for browser no exports for node required
 gulp.task("build-es5", () =>
     gulp.src(["src/mk-toast.js", "src/inc/footer.es5.js"])
+		.pipe(concat("mk-toast.js"))
         .pipe(babel({
             presets: ["@babel/env"]
         }))
-		// .pipe(addsrc("src/inc/footer.es5.js"))
-		.pipe(concat("mk-toast.js"))
         .pipe(gulp.dest("dist"))
 		.pipe(uglify())
         .pipe(rename("mk-toast.min.js"))
