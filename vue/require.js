@@ -10,7 +10,7 @@
  *    this.$toast.echo(message)
  */
 
-var mktoast = require("../dist/mk-toast.es6");
+var mktoast = require("../dist/mk-toast");
 
 var Toast = {
   /* pure ES6 works well in Dev mode, but leads to error during Build.
