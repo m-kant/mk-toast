@@ -1,6 +1,9 @@
 # mk-toast
 
-Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Smooth CSS animation with no twitching.
+Library agnostic notifier with Vue.js connector.
+Mobile friendly and compact.
+Smooth CSS animation with no twitching.
+Typings are included for TypeScript integration and better IDE experience.
 
 ![screenshot](https://github.com/m-kant/mk-toast/blob/master/mktoast-demo.gif?raw=true)
 
@@ -10,9 +13,16 @@ Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Sm
 
 ```bash
  npm install --save mk-toast
- ```
+```
 
 ## Inclusion
+
+### Build systems
+
+```JavaScript
+import mktoast from 'mk-toast';
+// Don't forget to include css styles from 'mk-toast/dist/mk-toast.css'
+```
 
 ### Browser
 
@@ -21,66 +31,56 @@ Library agnostic notifier with Vue.js connector. Mobile friendly and compact. Sm
 <script src="nodes_modules/mk-toast/dist/mk-toast.min.js"></script>
 ```
 
-### Build systems
+## Usage
 
 ```JavaScript
-var mktoast = require('mk-toast'); // reads es5 version
-// or 
-import mktoast from 'mk-toast'; // this will take es6 module
+mktoast.echo   (message [,title] [,options]);
+mktoast.success(message [,title] [,options]);
+mktoast.danger (message [,title] [,options]);
+mktoast.warning(message [,title] [,options]);
+mktoast.info   (message [,title] [,options]);
+
+// most universal usage
+mktoast.print(options);
 ```
 
-Don't forget to include css styles
-
-### Vue.js
+## Vue.js
 
 To use it anywhere inside components (without inclusion in every file), add in main.js:
 
 ```JavaScript
-import mktoast from 'mk-toast/vue';
-Vue.use(mktoast);
+import mktoastVue from 'mk-toast/vue';
+Vue.use(mktoastVue);
 ```
 
 You don't have to include styles in this case, 'cos styles are already included in Vue connector.
 
-Then in any vue component you can use `this.$mktoast`:
+Then inside vue component you can use `this.$mktoast`:
 
 ```JavaScript
-this.$mktoast.echo(message [,title] [,options]);
-this.$mktoast.success(message [,title] [,options]);
-...
+this.$mktoast.echo(message);
 ```
 
-To use it in a router or vuex, which does not have vue context, use regular es6 approach:
+To use it outside of componets (in vuex actions, for example), use regular es6 approach:
 
 ```JavaScript
 import mktoast from 'mk-toast';
 mktoast.echo('your message');
 ```
 
-## Usage
-
-```JavaScript
-mktoast.echo(message [,title] [,options]);
-mktoast.success(message [,title] [,options]);
-mktoast.danger(message [,title] [,options]);
-mktoast.warning(message [,title] [,options]);
-mktoast.info(message [,title] [,options]);
- 
-// most universal usage
-mktoast.print(options);
-```
+<!-- If any problems with build systems, which does not allow css imports use `import mktoast from 'mk-toast/vue/require';`, and include css separately. -->
 
 ## Options
 
-option | type | default | comment
------- | ---- | ------- | -------
-position | string | 'right bottom' | Positioning of mktoast: left center right  top bottom
-duration | milliseconds | 5000 | Time to keep toast message on screen
-container | DOMElement | null | Parent DOMElement of toast messages, default is body
-type | string | 'default' | Used only in mktoast.print(). Types of message: default, info, danger, success, warning.
-message | string | 'empty' | Used only in mktoast.print(). String or html code of message.
-title | string | undefined | Used only in mktoast.print(). String of toast title.
+| option    | type         | default        | comment                                                                                  |
+| --------- | ------------ | -------------- | ---------------------------------------------------------------------------------------- |
+| position  | string       | 'right bottom' | Positioning of mktoast: left center right top bottom                                     |
+| duration  | milliseconds | 5000           | Time to keep toast message on screen                                                     |
+| container | HTMLElement  | null           | Parent HTMLElement of toast messages, default is document.body                           |
+| type      | string       | 'default'      | Used only in mktoast.print(). Types of message: default, info, danger, success, warning. |
+| message   | string       | 'empty'        | Used only in mktoast.print(). String or html code of message.                            |
+| title     | string       | undefined      | Used only in mktoast.print(). String of toast title.                                     |
 
 ---
 
-[Demo and details](http://mkant.ru/mink-js/mk-toast)
+[Demo with playground](http://mkant.ru/mink-js/mk-toast)

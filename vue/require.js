@@ -1,13 +1,4 @@
-/** bridge to Vue.js for easy usage in components
- *  without multiply imports in every file.
- *  Intended for build systems as webpack
- * 
- *  In main.js add:
- *    import mktoast from "mk-toast/vue";
- *    Vue.use(mktoast);
- * 
- *  In any Vue component use as this:
- *    this.$toast.echo(message)
+/** bridge to Vue.js for non-webpack old build systems
  */
 
 var mktoast = require("../dist/mk-toast");

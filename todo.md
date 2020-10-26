@@ -8,4 +8,4 @@
 - dark and pale theme
 - BEM styles
 - ограниченная область видимости, например, 200px высотой - и всё крутится внутри нее
-- progress bar for message
+- progress bar in message

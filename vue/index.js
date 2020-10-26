@@ -10,14 +10,10 @@
  *    this.$toast.echo(message)
  */
 
-import mktoast from "../dist/mk-toast.es6";
+import mktoast from "../dist/mk-toast"; // get with no types, typed is imported in *.d.ts file
 import "../dist/mk-toast.css"; // for webpack
 
 const Toast = {
-  /* pure ES6 works well in Dev mode, but leads to error during Build.
-     so had to change func definition from "func(){}" to "func: function(){}"
-     had to remove default argument value "func(a=10)"
-  */
   install: function (Vue, toastDefaults) {
     Object.assign(mktoast.defaults, toastDefaults);
     Vue.prototype.$mktoast = mktoast;

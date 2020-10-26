@@ -5,7 +5,7 @@ const del		= require("del");
 const uglify	= require("gulp-uglify");
 const concat	= require("gulp-concat");
 const babel		= require("gulp-babel");
-const addsrc	= require("gulp-add-src");
+// const addsrc	= require("gulp-add-src");
 const rename	= require("gulp-rename");
 const less		= require("gulp-less");
 const LessAutoprefix = require("less-plugin-autoprefix");
@@ -24,23 +24,19 @@ gulp.task("less", () =>
 		.pipe(gulp.dest("./dist"))
 );
 
-gulp.task("build-es6", () =>
-    gulp.src(["src/mk-toast.js","src/inc/footer.es6.js"])
-		.pipe(concat("mk-toast.es6.js"))
-		.pipe(gulp.dest("dist"))
-);
-
-// this widget is only for browser no exports for node required
 gulp.task("build-es5", () =>
-    gulp.src(["src/mk-toast.js", "src/inc/footer.es5.js"])
+	gulp.src(["src/mk-toast.js"])
 		.pipe(concat("mk-toast.js"))
-        .pipe(babel({
-            presets: ["@babel/env"]
-        }))
+        .pipe(babel({ presets: ["@babel/env"] }))
         .pipe(gulp.dest("dist"))
 		.pipe(uglify())
         .pipe(rename("mk-toast.min.js"))
         .pipe(gulp.dest("dist"))
 );
 
-gulp.task("build", gulp.series( "clean", gulp.parallel("build-es5", "build-es6", "less")) );
+gulp.task("move-types", () =>
+	gulp.src(["src/mk-toast.d.js"])
+        .pipe(gulp.dest("dist"))
+);
+
+gulp.task("build", gulp.series( "clean", gulp.parallel("build-es5", "less")) );

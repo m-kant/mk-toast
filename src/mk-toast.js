@@ -10,7 +10,7 @@ const mktoast = {
         duration:    5000,			// milliseconds
         type:       'default',		// default|info|danger|success|warning
         message:    'empty',		// string or html of message
-        container:   null,			// parent DOMElement of toast messages, default is body
+        container:   null,			// parent HTMLElement of toast messages, default is body
     },
 
     _getToastBoard(options) {
@@ -48,7 +48,7 @@ const mktoast = {
 	 * Places toast message into DOM.
 	 * Easier to use syntax sugar - mktoast.echo(message) and so on.
 	 * @param {object} options rewrites defaults for individual message
-	 * @returns {DOMElement}
+	 * @returns {HTMLElement}
 	 */
     print(options) {
         options = this._weld( this.defaults, options );
@@ -158,3 +158,6 @@ const mktoast = {
 		return res;
 	},
 };
+
+
+export default mktoast;

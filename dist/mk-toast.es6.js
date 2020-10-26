@@ -159,5 +159,4 @@ const mktoast = {
 	},
 };
 
-
 export default mktoast;
