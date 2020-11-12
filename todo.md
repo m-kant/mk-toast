@@ -1,11 +1,10 @@
 # TODO
 
-- add TYPINGS!!!!
-- Translate styles to sass
-- Message object with changeable content, type etc…
-- Configurable container to show messages as infopane
-- чехорда со старыми сборщиками на uglifyJS
-- dark and pale theme
+- migrate on Webpack
+- migrate on Typescript
+- Migrate LESS to SASS
 - BEM styles
-- ограниченная область видимости, например, 200px высотой - и всё крутится внутри нее
+- Message object with changeable content, type etc…
+- dark and pale theme
+- ограниченная область видимости, например, 200px высотой - и всё крутится внутри нее (Configurable container to show messages as infopane)
 - progress bar in message

@@ -12,7 +12,7 @@ Typings are included for TypeScript integration and better IDE experience.
 ## Installation
 
 ```bash
- npm install --save mk-toast
+ npm install mk-toast
 ```
 
 ## Inclusion
