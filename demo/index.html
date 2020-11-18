@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!-- MK libraries -->
-	<link rel="stylesheet" href="../dist/mk-toast.min.css">
-	<script charset='UTF-8' src='../dist/mk-toast.min.js'></script>
+	<link rel="stylesheet" href="../dist/mk-toast.css">
+	<script charset='UTF-8' src='../dist/mk-toast.js'></script>
 	<script charset='UTF-8' src='assets/random.js'></script>
 
 	<title>mktoast Demo</title>
@@ -37,8 +37,8 @@
 	<p>
 		&bull; <b>Library agnostic</b>
 		&bull; <b>Vue.js connector</b> - you can use it anywhere in components and in vue-router and vuex
-		&bull; Compact 
-		&bull; Smooth css animation without jumps on manual close 
+		&bull; Compact
+		&bull; Smooth css animation without jumps on manual close
 	</p>
 
 	<h2>Try it: </h2>
@@ -50,7 +50,7 @@
 			<button onclick="print('danger')" class="btn btn-default">danger</button>
 			<button onclick="print('warning')" class="btn btn-default">warning</button>
 		</span>
-		
+
 		position:
 		<select id='xposition' class="form-control">
 			<option value=''>default</option>
@@ -63,18 +63,18 @@
 			<option>bottom</option>
 			<option>top</option>
 		</select>
-		
+
 		duration:
 		<input id='durationEl' type='text' class='form-control' value="3000" size='4' />
 	</p>
-	
+
 	<h2>Installation</h2>
 	<pre> npm install --save mk-toast </pre>
-	
+
 	<h2>Inclusion</h2>
 	<h3>CommonJS</h3>
 	<pre> var mktoast = require('mk-toast'); </pre>
-	
+
 	<h3>Browser</h3>
 	<pre>
 &lt;link  href="nodes_modules/mk-toast/dist/mk-toast.min.css" rel="stylesheet">
@@ -84,18 +84,18 @@
 	To use it anywhere inside components (without inclusion in every file), add in main.js
 	<pre>import mktoast from 'mk-toast/vue';
 Vue.use(mktoast);</pre>
-	
+
 	In App.vue, in "styles" section:
 	<pre>@import "../node_modules/mk-toast/dist/mk-toast.css";</pre>
 
 	Inside vue components use <span class="badge">this.$mktoast</span> instead of <span class="badge">mktoast</span>:
 	<pre>this.$mktoast.echo('your message');</pre>
-	
-	To use it in a router or vuex, which does not have vue context, use es6 approach:	
+
+	To use it in a router or vuex, which does not have vue context, use es6 approach:
 <pre>import mktoast from 'mk-toast';
 
 mktoast.echo('your message');</pre>
-	
+
 	<h2>Usage</h2>
 	  <div class="mk-toast-board demo-board">
 		<div class="mk-message mk-default">
@@ -140,8 +140,15 @@ mktoast.echo('your message');</pre>
 
 
 	<script>
-		mktoast.success('mktoast notifier is working','WOW!');
-		setTimeout( function(){mktoast.echo('It can show different types of messages, with or without title');}, 1000);
+    mktoast.success('mktoast notifier is working','WOW!');
+    [
+      {type: 'default', title: 'Echo Sample',    message: 'Here is Default message'},
+      {type: 'danger',  title: 'Danger Sample',  message: 'Here is Danger message'},
+      {type: 'info',    title: 'Info Sample',    message: 'Here is Info message'},
+      {type: 'warning', title: 'Warning Sample', message: 'Here is Warning message'},
+    ].forEach(function (msg, i) {setTimeout(function () {mktoast.print(msg)}, 1000 + (i+1)*500)});
+
+		// setTimeout( function(){mktoast.echo('It can show different types of messages, with or without title');}, 1000);
 
 		function print(type){
 			if(!type) type = 'default';
@@ -151,7 +158,7 @@ mktoast.echo('your message');</pre>
 			};
 			mktoast[type](getText(),type, options);
 		}
-		
+
 		function getText(){
 			var t = [
 				['This is a message','It is a message','It\'s a notification','This is a kind of message','Here is message','You reading kind of notification',],
