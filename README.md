@@ -40,7 +40,7 @@ mktoast.danger (message [,title] [,options]);
 mktoast.warning(message [,title] [,options]);
 mktoast.info   (message [,title] [,options]);
 
-// most universal usage
+// most generic usage
 mktoast.print(options);
 ```
 

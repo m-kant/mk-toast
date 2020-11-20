@@ -22,7 +22,7 @@ gulp.task('rollup', async function () {
     file: distFolder + 'mk-toast.js',
     format: 'umd',
     name: 'mktoast',
-    banner: '/** For use in bundlers/browsers in a form of UMD */',
+    // banner: '/** For use in bundlers/browsers in a form of UMD */',
     sourcemap: IS_DEV ? 'inline' : false,
   });
   if (IS_PROD) {
@@ -31,7 +31,7 @@ gulp.task('rollup', async function () {
       file: distFolder + 'mk-toast.min.js',
       format: 'iife',
       name: 'mktoast',
-      banner: '/** For use in browsers in a form of self-executing function (IIFE) */',
+      // banner: '/** For use in browsers in a form of self-executing function (IIFE) */',
       sourcemap: false,
       plugins: [terser()]
     });

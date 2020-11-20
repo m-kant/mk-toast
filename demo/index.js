@@ -37,7 +37,7 @@ function getText() {
       'You reading kind of notification',
     ],
     [
-      'intended to attract users attention',
+      'intended to <i>attract</i> users attention',
       'to attract attention',
       'used to show important information',
       'suitable to show some information',

@@ -1,4 +1,4 @@
-import type { EchoMethod, MsgType, Options, XOptions } from './types';
+import type { EchoMethod, Message, MsgType, Options, XOptions } from './types';
 import { _appendMessage, _closeMessage, _computePositionCssClasses, _getToastBoard, _newEl, _weld, } from './utils';
 
 const defaults: Options = {
@@ -11,12 +11,11 @@ const defaults: Options = {
 };
 
 /**
- * Places toast message into DOM.
- * Easier to use syntax sugar - mktoast.echo(message) and so on.
- * @param {object} options rewrites defaults for individual message
- * @returns {HTMLElement}
+ * Publishes toast message into the board
+ * Creates board if it does not exists and mounts it into document
+ * @param opts overrides defaults for individual message
  */
-function print(opts: Options) {
+function print(opts: Options): Message {
   opts = _weld(this.defaults, opts);
   const options = _computePositionCssClasses(opts) as XOptions;
   options.boardEl = _getToastBoard(options);
@@ -42,7 +41,7 @@ function print(opts: Options) {
 
   wrapperEl.mktoast = options;
   _appendMessage(wrapperEl);
-  return wrapperEl;
+  return {el: messageEl, wrapperEl, boardEl: options.boardEl};
 };
 
 
@@ -79,8 +78,7 @@ const info: EchoMethod = function(message, title, options) {
 };
 
 /**
- * Publish stacked messages at the side of screen
- * @type mktoast
+ * Publish stacked notifications at the side of screen
  */
 export default {
   defaults,

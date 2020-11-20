@@ -27,5 +27,12 @@ export interface XOptions extends Options{
 
 /** "shugar" methods type */
 export type EchoMethod =
-  ((message: string, title?: string, options?: Partial<ShortOptions>) => MessageWrapperEl) |
-  ((message: string, options?: Partial<ShortOptions>) => MessageWrapperEl);
+  ((message: string, title?: string, options?: Partial<ShortOptions>) => Message) |
+  ((message: string, options?: Partial<ShortOptions>) => Message);
+
+
+export interface Message {
+  el:        Element;
+  wrapperEl: Element;
+  boardEl:   Element;
+}
