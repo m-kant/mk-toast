@@ -76,8 +76,39 @@ Default colors are taken from Material Design [palette](https://www.materialui.c
 Alt colors are taken from [w3schools](https://www.w3schools.com/colors/colors_trends.asp) and originally collected by [Pantone](https://www.pantone.com/) at New York Fashion week. You only need to include `mk-toast/dist/mk-toast-alt.css` after default styles.
 ![screenshot](materials/mktoast-alt-colors.png?raw=true)
 
-Dark theme is also included. You only need to include `mk-toast/dist/mk-toast-alt.css` after default styles.
+Dark theme is also included. You only need to include `mk-toast/dist/mk-toast-dark.css` after default styles.
 ![screenshot](materials/mktoast-dark-colors.png?raw=true)
+
+## Customisation
+
+You need to add your own CSS styles after default styles.
+
+```css
+/* basic styles for all messages */
+.mktoast-message {
+  background-color: grey;
+  color: black;
+}
+.mktoast-message .mktoast-message__title {
+  background-color: black;
+  color: white;
+}
+/* danger message */
+.mktoast-message_danger {
+  background-color: red;
+  border-color: brown;
+  color: black;
+}
+.mktoast-message_danger .mktoast-message__title {
+  background-color: brown;
+  color: white;
+}
+/* Other style modifiers:
+    .mktoast-message_success {}
+    .mktoast-message_warning {}
+    .mktoast-message_info {}
+*/
+```
 
 ## Options
 
