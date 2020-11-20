@@ -7,7 +7,7 @@
   "scripts": {
     "build": "gulp clean && gulp build -m prod && npm run dts",
     "serve": "gulp serve -m dev",
-    "dev": "gulp serve -m dev",
+    "dev": "npm run serve",
     "dts": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist",
     "tsc": "tsc",
     "roll": "rollup -c",

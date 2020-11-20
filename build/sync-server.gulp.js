@@ -4,14 +4,15 @@ const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const { distFolder } = require('./config.js');
 
-// Static server
 gulp.task('sync-server', function () {
+  // Static server
   browserSync.init({
     server: { baseDir: '.' },
     // proxy: 'http://localhost',
   });
+  // reload browser on dist/files change
   gulp.watch([distFolder + '*.*', 'demo/*.*']).on('change', browserSync.reload);
 });
 
-// for CSS inject in styles task
+// for CSS-inject in styles task
 module.exports = browserSync;

@@ -9,7 +9,7 @@ require('./build/sync-server.gulp.js');
 
 gulp.task('watch', function () {
   gulp.watch([srcFolder + '*.ts'], gulp.parallel('rollup'));
-  gulp.watch([srcFolder + '*.scss'], gulp.parallel('skin'));
+  gulp.watch([srcFolder + '*.scss', srcFolder + '**/*.scss', ], gulp.parallel('skin'));
 });
 
 gulp.task('build', gulp.parallel('copy', 'rollup', 'skin'));

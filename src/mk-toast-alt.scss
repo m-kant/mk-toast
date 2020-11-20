@@ -1,0 +1,34 @@
+/**
+  Colors are taken from New York fashion week
+  It can be investigated at https://www.w3schools.com/colors/colors_trends.asp
+  This colorsets are collected by Pantone https://www.pantone.com/, https://color-of-the-year.com/
+*/
+
+@import './scss/mixins';
+
+// Styles ===
+.mktoast {
+  $color-default: #eee;
+  $color-danger:  #b93a32;
+  $color-ok:      #88B04B;
+  $color-warning: #d8ae47;
+  $color-info:    #578ca9;
+
+  &-message {
+    background-color: $color-default;
+    border: 1px solid darken($color-default, 10%);
+
+    &_danger {
+      @include colorize($color-danger);
+    }
+    &_success {
+      @include colorize($color-ok);
+    }
+    &_warning {
+      @include colorize($color-warning);
+    }
+    &_info {
+      @include colorize($color-info);
+    }
+  }
+}

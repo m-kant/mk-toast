@@ -1,8 +1,5 @@
 # TODO
 
-- migrate on Webpack
-- migrate on Typescript
-- Migrate LESS to SASS
 - BEM styles
 - Message object with changeable content, type etc…
 - dark and pale theme
