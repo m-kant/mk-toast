@@ -70,14 +70,17 @@ mktoast.echo('your message');
 
 ## Themes
 
-Default colors are taken from Material Design [palette](https://www.materialui.co/colors). You only need to include `mk-toast/dist/mk-toast.css` to your project
+Default colors are taken from Material Design [palette](https://www.materialui.co/colors). You only need to include `mk-toast/dist/mk-toast.css` into your project
 ![screenshot](materials/mktoast-default-colors.png?raw=true)
 
-Alt colors are taken from [w3schools](https://www.w3schools.com/colors/colors_trends.asp) and originally collected by [Pantone](https://www.pantone.com/) at New York Fashion week. You only need to include `mk-toast/dist/mk-toast-alt.css` after default styles.
+Alt colors are taken from [w3schools](https://www.w3schools.com/colors/colors_trends.asp) and originally collected by [Pantone](https://www.pantone.com/) at New York Fashion week. You have to to include `mk-toast/dist/mk-toast-alt.css` after default styles.
 ![screenshot](materials/mktoast-alt-colors.png?raw=true)
 
-Dark theme is also included. You only need to include `mk-toast/dist/mk-toast-dark.css` after default styles.
+Dark theme is also included. You have to include `mk-toast/dist/mk-toast-dark.css` after default styles.
 ![screenshot](materials/mktoast-dark-colors.png?raw=true)
+
+Very small patch for rounded corners `mk-toast/dist/mk-toast-rounded.css` can be combined with any theme.
+![screenshot](materials/mktoast-rounded.png?raw=true)
 
 ## Customisation
 

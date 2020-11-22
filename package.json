@@ -32,6 +32,10 @@
     "url": "https://github.com/m-kant/mk-toast/issues"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "@rollup/plugin-typescript": "^6.1.0",
     "@types/node": "^14.14.7",
     "browser-sync": "^2.26.13",
