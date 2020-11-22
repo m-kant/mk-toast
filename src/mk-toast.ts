@@ -4,14 +4,14 @@ import { _appendMessage, _closeMessage, _computePositionCssClasses, _getToastBoa
 const defaults: Options = {
   position: 'right bottom', // left|center|right top|bottom
   duration: 5000,           // milliseconds
-  type:     'default',      // default|info|danger|success|warning
-  title:    '',             // string or html of message
-  message:  'Attention',    // string or html of message
+  type: 'default',      // default|info|danger|success|warning
+  title: '',             // string or html of message
+  message: 'Attention',    // string or html of message
   container: null,          // parent HTMLElement of toast messages, default is body
 };
 
 /**
- * Publishes toast message into the board
+ * Publish toast message into the board
  * Creates board if it does not exists and mounts it into document
  * @param opts overrides defaults for individual message
  */
@@ -41,7 +41,7 @@ function print(opts: Options): Message {
 
   wrapperEl.mktoast = options;
   _appendMessage(wrapperEl);
-  return {el: messageEl, wrapperEl, boardEl: options.boardEl};
+  return { el: messageEl, wrapperEl, boardEl: options.boardEl };
 };
 
 
@@ -53,27 +53,31 @@ function _echoArgsToOptions(
   title: string | Partial<Options>,
   options?: Partial<Options>,
 ) {
-   // if title is an option indeed
+  // if title is an option indeed
   if (typeof title === 'object') {
     options = title;
     title = null;
   }
-  return { ...options, message, title, type};
+  return { ...options, message, title, type };
 }
-
-const echo: EchoMethod =  function (message, title, options) {
+/** Publish default neutral gray color message */
+const echo: EchoMethod = function (message, title, options) {
   return this.print(_echoArgsToOptions('default', message, title, options));
 };
+/** Publish red color message */
 const danger: EchoMethod = function (message, title, options) {
   return this.print(_echoArgsToOptions('danger', message, title, options));
 };
-const success: EchoMethod = function(message, title, options) {
+/** Publish green color message */
+const success: EchoMethod = function (message, title, options) {
   return this.print(_echoArgsToOptions('success', message, title, options));
 };
-const warning: EchoMethod = function(message, title, options) {
+/** Publish orange color message */
+const warning: EchoMethod = function (message, title, options) {
   return this.print(_echoArgsToOptions('warning', message, title, options));
 };
-const info: EchoMethod = function(message, title, options) {
+/** Publish blue color message */
+const info: EchoMethod = function (message, title, options) {
   return this.print(_echoArgsToOptions('info', message, title, options));
 };
 
@@ -83,15 +87,25 @@ const info: EchoMethod = function(message, title, options) {
 export default {
   defaults,
   closeMessage: _closeMessage,
+  /** Publish red color message */
   danger,
+  /** Publish default neutral gray color message */
   echo,
   /** Alias for danger */
   error: danger,
+  /** Publish blue color message */
   info,
+  /**
+  * Publish toast message into the board
+  * Creates board if it does not exists and mounts it into document
+  * @param opts overrides defaults for individual message
+  */
   print,
+  /** Publish green color message */
   success,
   /** Alias for success */
   ok: success,
+  /** Publish orange color message */
   warning,
   /** Alias for warning */
   warn: warning,

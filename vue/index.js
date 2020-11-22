@@ -10,8 +10,8 @@
  *    this.$toast.echo(message)
  */
 
-import mktoast from "../dist/mk-toast"; // get with no types, typed is imported in *.d.ts file
-import "../dist/mk-toast.css"; // for webpack
+import mktoast from "../dist/mk-toast";
+import "../dist/mk-toast.css"; // for bundlers like webpack or rollup
 
 const Toast = {
   install: function (Vue, toastDefaults) {

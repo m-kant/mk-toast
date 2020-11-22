@@ -1,7 +1,7 @@
 import type { Message, Options } from './types';
 import { _closeMessage } from './utils';
 /**
- * Publishes toast message into the board
+ * Publish toast message into the board
  * Creates board if it does not exists and mounts it into document
  * @param opts overrides defaults for individual message
  */
