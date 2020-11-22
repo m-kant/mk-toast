@@ -237,22 +237,32 @@
       type: type
     });
   }
+  /** Publish default neutral gray color message */
+
 
   var echo = function echo(message, title, options) {
     return this.print(_echoArgsToOptions('default', message, title, options));
   };
+  /** Publish red color message */
+
 
   var danger = function danger(message, title, options) {
     return this.print(_echoArgsToOptions('danger', message, title, options));
   };
+  /** Publish green color message */
+
 
   var success = function success(message, title, options) {
     return this.print(_echoArgsToOptions('success', message, title, options));
   };
+  /** Publish orange color message */
+
 
   var warning = function warning(message, title, options) {
     return this.print(_echoArgsToOptions('warning', message, title, options));
   };
+  /** Publish blue color message */
+
 
   var info = function info(message, title, options) {
     return this.print(_echoArgsToOptions('info', message, title, options));
@@ -265,17 +275,33 @@
   var mkToast = {
     defaults: defaults,
     closeMessage: _closeMessage,
+
+    /** Publish red color message */
     danger: danger,
+
+    /** Publish default neutral gray color message */
     echo: echo,
 
     /** Alias for danger */
     error: danger,
+
+    /** Publish blue color message */
     info: info,
+
+    /**
+    * Publishes toast message into the board
+    * Creates board if it does not exists and mounts it into document
+    * @param opts overrides defaults for individual message
+    */
     print: print,
+
+    /** Publish green color message */
     success: success,
 
     /** Alias for success */
     ok: success,
+
+    /** Publish orange color message */
     warning: warning,
 
     /** Alias for warning */
