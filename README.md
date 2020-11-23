@@ -5,7 +5,7 @@ Mobile friendly and compact.
 Smooth CSS animation with no twitching.
 Typings are included for TypeScript integration and better IDE experience.
 
-![screenshot](https://raw.githubusercontent.com/m-kant/mk-toast/master/mktoast-demo.gif?raw=true)
+![screenshot](https://raw.githubusercontent.com/m-kant/mk-toast/master/materials/mktoast-demo.gif?raw=true)
 
 [Demo and details](http://mkant.ru/mink-js/mk-toast)
 
@@ -50,10 +50,12 @@ To use it anywhere inside components (without inclusion in every file), add in m
 
 ```JavaScript
 import mktoastVue from 'mk-toast/vue';
+// if you want non-default theme insert it here:
+// import "mk-toast/dist/mk-toast-alt.css";
 Vue.use(mktoastVue);
 ```
 
-You don't have to include styles in this case, 'cos styles are already included in Vue connector.
+You don't have to include default styles in this case, 'cos styles are already included in Vue connector.
 
 Then inside vue component you can use `this.$mktoast`:
 
@@ -71,16 +73,16 @@ mktoast.echo('your message');
 ## Themes
 
 Default colors are taken from Material Design [palette](https://www.materialui.co/colors). You only need to include `mk-toast/dist/mk-toast.css` into your project
-![screenshot](materials/mktoast-default-colors.png?raw=true)
+![screenshot](https://raw.githubusercontent.com/m-kant/mk-toast/master/materials/mktoast-default-colors.png?raw=true)
 
-Alt colors are taken from [w3schools](https://www.w3schools.com/colors/colors_trends.asp) and originally collected by [Pantone](https://www.pantone.com/) at New York Fashion week. You have to to include `mk-toast/dist/mk-toast-alt.css` after default styles.
-![screenshot](materials/mktoast-alt-colors.png?raw=true)
+Alt colors are taken from [w3schools](https://www.w3schools.com/colors/colors_trends.asp) and originally collected by [Pantone](https://www.pantone.com/) at New York Fashion week. You have to to include `mk-toast/dist/mk-toast-alt.css` **after** default styles.
+![screenshot](https://raw.githubusercontent.com/m-kant/mk-toast/master/materials/mktoast-alt-colors.png?raw=true)
 
-Dark theme is also included. You have to include `mk-toast/dist/mk-toast-dark.css` after default styles.
-![screenshot](materials/mktoast-dark-colors.png?raw=true)
+Dark theme is also included. You have to include `mk-toast/dist/mk-toast-dark.css` **after** default styles.
+![screenshot](https://raw.githubusercontent.com/m-kant/mk-toast/master/materials/mktoast-dark-colors.png?raw=true)
 
 Very small patch for rounded corners `mk-toast/dist/mk-toast-rounded.css` can be combined with any theme.
-![screenshot](materials/mktoast-rounded.png?raw=true)
+![screenshot](https://raw.githubusercontent.com/m-kant/mk-toast/master/materials/mktoast-rounded.png?raw=true)
 
 ## Customisation
 

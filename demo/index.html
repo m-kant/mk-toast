@@ -100,11 +100,10 @@
 
         <h3>Vue.js</h3>
         To use it anywhere inside components (without inclusion in every file), add in main.js
-        <pre>import mktoast from 'mk-toast/vue';
-Vue.use(mktoast);</pre>
-
-        In App.vue, in "styles" section:
-        <pre>@import "../node_modules/mk-toast/dist/mk-toast.css";</pre>
+        <pre>import mktoastVue from 'mk-toast/vue';
+// if you want non-default theme insert it here:
+// import "mk-toast/dist/mk-toast-alt.css";
+Vue.use(mktoastVue);</pre>
 
         Inside vue components use <span class="badge">this.$mktoast</span> instead of <span
           class="badge">mktoast</span>:
