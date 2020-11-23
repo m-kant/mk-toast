@@ -1,0 +1,30 @@
+@import './scss/mixins';
+
+
+// Styles ===
+.mktoast {
+  $color-default: #eee;
+  $color-danger: #f44336;
+  $color-ok: #8BC34A;
+  $color-warning: #FFCA28;
+  $color-info: #1E88E5;
+
+  &-message {
+    box-shadow: none;
+    @include colorizeDark(#000);
+    border-color: scale-color(#101D24, $lightness: 10%, $saturation: -20%);
+
+    &_danger {
+      @include colorizeDark($color-danger);
+    }
+    &_success {
+      @include colorizeDark($color-ok);
+    }
+    &_warning {
+      @include colorizeDark($color-warning);
+    }
+    &_info {
+      @include colorizeDark($color-info);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@mixin colorize($color) {
+  $color: scale-color($color, $saturation: -20%, $lightness: -10%);
+  background-color: $color;
+  border-color: darken($color, 10%);
+  color: #fff;
+  .mktoast-message__title {
+    background-color: darken($color, 5%);
+    // background-color: color.scale($color, $lightness: 15%);
+  }
+}
+
+@mixin colorizeDark($color) {
+  $bg: #101D24;
+  $color: mix($bg, $color, 70%);
+
+  background-color: $color;
+  border-color: scale-color($color, $lightness: 5%, $saturation: 10%);
+  color: mix(#fff, $color, 90%);;
+  .mktoast-message__title {
+    // background-color: lighten($color, 5%);
+    background-color: scale-color($color, $lightness: 5%);
+  }
+}

@@ -5,7 +5,7 @@ Mobile friendly and compact.
 Smooth CSS animation with no twitching.
 Typings are included for TypeScript integration and better IDE experience.
 
-![screenshot](https://github.com/m-kant/mk-toast/blob/master/mktoast-demo.gif?raw=true)
+![screenshot](https://raw.githubusercontent.com/m-kant/mk-toast/master/mktoast-demo.gif?raw=true)
 
 [Demo and details](http://mkant.ru/mink-js/mk-toast)
 
@@ -40,7 +40,7 @@ mktoast.danger (message [,title] [,options]);
 mktoast.warning(message [,title] [,options]);
 mktoast.info   (message [,title] [,options]);
 
-// most universal usage
+// most generic usage
 mktoast.print(options);
 ```
 
@@ -68,7 +68,50 @@ import mktoast from 'mk-toast';
 mktoast.echo('your message');
 ```
 
-<!-- If any problems with build systems, which does not allow css imports use `import mktoast from 'mk-toast/vue/require';`, and include css separately. -->
+## Themes
+
+Default colors are taken from Material Design [palette](https://www.materialui.co/colors). You only need to include `mk-toast/dist/mk-toast.css` into your project
+![screenshot](materials/mktoast-default-colors.png?raw=true)
+
+Alt colors are taken from [w3schools](https://www.w3schools.com/colors/colors_trends.asp) and originally collected by [Pantone](https://www.pantone.com/) at New York Fashion week. You have to to include `mk-toast/dist/mk-toast-alt.css` after default styles.
+![screenshot](materials/mktoast-alt-colors.png?raw=true)
+
+Dark theme is also included. You have to include `mk-toast/dist/mk-toast-dark.css` after default styles.
+![screenshot](materials/mktoast-dark-colors.png?raw=true)
+
+Very small patch for rounded corners `mk-toast/dist/mk-toast-rounded.css` can be combined with any theme.
+![screenshot](materials/mktoast-rounded.png?raw=true)
+
+## Customisation
+
+You need to add your own CSS styles after default styles.
+
+```css
+/* basic styles for all messages */
+.mktoast-message {
+  background-color: grey;
+  color: black;
+}
+.mktoast-message .mktoast-message__title {
+  background-color: black;
+  color: white;
+}
+/* danger message */
+.mktoast-message_danger {
+  background-color: red;
+  border-color: brown;
+  color: black;
+}
+.mktoast-message_danger .mktoast-message__title {
+  background-color: brown;
+  color: white;
+}
+/* Other style modifiers:
+    .mktoast-message_success {}
+    .mktoast-message_warning {}
+    .mktoast-message_info {}
+*/
+```
 
 ## Options
 

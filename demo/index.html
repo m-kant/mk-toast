@@ -1,171 +1,295 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<!-- MK libraries -->
-	<link rel="stylesheet" href="../dist/mk-toast.min.css">
-	<script charset='UTF-8' src='../dist/mk-toast.min.js'></script>
-	<script charset='UTF-8' src='assets/random.js'></script>
+  <!-- MK libraries -->
+  <link rel="stylesheet" href="../dist/mk-toast.css">
+  <!-- <link rel="stylesheet" href="../dist/mk-toast-dark.css"> -->
+  <!-- <link rel="stylesheet" href="../dist/mk-toast-rounded.css"> -->
+  <script charset='UTF-8' src='../dist/mk-toast.js'></script>
+  <script charset='UTF-8' src='assets/random.js'></script>
 
-	<title>mktoast Demo</title>
-	<style>
-		.demo-board{ width: 100%; position:initial;}
-		.demo-board .mk-message{ min-width: 300px; max-width: 350px; display: inline-block; }
-		.form-control{width: auto; display: inline-block;}
-	</style>
+  <title>mktoast Demo</title>
+  <style>
+    .demo-board {
+      width: 100%;
+      position: initial;
+    }
+
+    .demo-board .mktoast-message {
+      min-width: 300px;
+      max-width: 350px;
+      display: inline-block;
+    }
+
+    .form-control {
+      width: auto;
+      display: inline-block;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
-	<br />
-	<a class="btn btn-default" href="http://mkant.ru/mink-js/"><< Demos</a>
-	<a class="btn btn-default" href="http://mkant.ru">MKant.ru</a>
-	<a class="btn btn-default" href="https://github.com/m-kant/mk-toast">View at <b>GIT Hub</b></a>
-	<a class="btn btn-default" href="https://www.npmjs.com/package/mk-toast">View at <b>NPM</b></a>
+  <div class="container">
+    <br />
+    <a class="btn btn-default" href="http://mkant.ru/mink-js/">
+      << Demos</a>
+        <a class="btn btn-default" href="http://mkant.ru">MKant.ru</a>
+        <a class="btn btn-default" href="https://github.com/m-kant/mk-toast">View at <b>GIT Hub</b></a>
+        <a class="btn btn-default" href="https://www.npmjs.com/package/mk-toast">View at <b>NPM</b></a>
 
-	<h1>mktoast</h1>
-	<p>
-		Notifier to display different types of stacked messages at the side of screen
-	</p>
-	<p>
-		&bull; <b>Library agnostic</b>
-		&bull; <b>Vue.js connector</b> - you can use it anywhere in components and in vue-router and vuex
-		&bull; Compact 
-		&bull; Smooth css animation without jumps on manual close 
-	</p>
+        <h1>mktoast</h1>
+        <p>
+          Notifier to display different types of stacked messages at the side of screen
+        </p>
+        <p>
+          &bull; <b>Library agnostic</b>
+          &bull; <b>Vue.js connector</b> - you can use it anywhere in components and in vue-router and vuex
+          &bull; Compact
+          &bull; Smooth css animation without jumps on manual close
+        </p>
 
-	<h2>Try it: </h2>
-	<p>
-		<span class='btn-group'>
-			<button onclick="print('echo')" class="btn btn-default">echo</button>
-			<button onclick="print('info')" class="btn btn-default">info</button>
-			<button onclick="print('success')" class="btn btn-default">success</button>
-			<button onclick="print('danger')" class="btn btn-default">danger</button>
-			<button onclick="print('warning')" class="btn btn-default">warning</button>
-		</span>
-		
-		position:
-		<select id='xposition' class="form-control">
-			<option value=''>default</option>
-			<option>left</option>
-			<option>center</option>
-			<option>right</option>
-		</select>
-		<select id="yposition" class="form-control">
-			<option value=''>default</option>
-			<option>bottom</option>
-			<option>top</option>
-		</select>
-		
-		duration:
-		<input id='durationEl' type='text' class='form-control' value="3000" size='4' />
-	</p>
-	
-	<h2>Installation</h2>
-	<pre> npm install --save mk-toast </pre>
-	
-	<h2>Inclusion</h2>
-	<h3>CommonJS</h3>
-	<pre> var mktoast = require('mk-toast'); </pre>
-	
-	<h3>Browser</h3>
-	<pre>
+        <h2>Try it: </h2>
+        <p>
+          <span class='btn-group'>
+            <button onclick="print('echo')" class="btn btn-default">echo</button>
+            <button onclick="print('info')" class="btn btn-default">info</button>
+            <button onclick="print('success')" class="btn btn-default">success</button>
+            <button onclick="print('danger')" class="btn btn-default">danger</button>
+            <button onclick="print('warning')" class="btn btn-default">warning</button>
+          </span>
+
+          position:
+          <select id='xposition' class="form-control">
+            <option value=''>default</option>
+            <option>left</option>
+            <option>center</option>
+            <option>right</option>
+          </select>
+          <select id="yposition" class="form-control">
+            <option value=''>default</option>
+            <option>bottom</option>
+            <option>top</option>
+          </select>
+
+          duration:
+          <input id='durationEl' type='text' class='form-control' value="3000" size='4' />
+        </p>
+
+        <h2>Installation</h2>
+        <pre> npm install --save mk-toast </pre>
+
+        <h2>Inclusion</h2>
+        <h3>CommonJS</h3>
+        <pre> var mktoast = require('mk-toast'); </pre>
+
+        <h3>Browser</h3>
+        <pre>
 &lt;link  href="nodes_modules/mk-toast/dist/mk-toast.min.css" rel="stylesheet">
 &lt;script src="nodes_modules/mk-toast/dist/mk-toast.min.js"></script></pre>
 
-	<h3>Vue.js</h3>
-	To use it anywhere inside components (without inclusion in every file), add in main.js
-	<pre>import mktoast from 'mk-toast/vue';
+        <h3>Vue.js</h3>
+        To use it anywhere inside components (without inclusion in every file), add in main.js
+        <pre>import mktoast from 'mk-toast/vue';
 Vue.use(mktoast);</pre>
-	
-	In App.vue, in "styles" section:
-	<pre>@import "../node_modules/mk-toast/dist/mk-toast.css";</pre>
 
-	Inside vue components use <span class="badge">this.$mktoast</span> instead of <span class="badge">mktoast</span>:
-	<pre>this.$mktoast.echo('your message');</pre>
-	
-	To use it in a router or vuex, which does not have vue context, use es6 approach:	
-<pre>import mktoast from 'mk-toast';
+        In App.vue, in "styles" section:
+        <pre>@import "../node_modules/mk-toast/dist/mk-toast.css";</pre>
+
+        Inside vue components use <span class="badge">this.$mktoast</span> instead of <span
+          class="badge">mktoast</span>:
+        <pre>this.$mktoast.echo('your message');</pre>
+
+        To use it in a router or vuex, which does not have vue context, use es6 approach:
+        <pre>import mktoast from 'mk-toast';
 
 mktoast.echo('your message');</pre>
-	
-	<h2>Usage</h2>
-	  <div class="mk-toast-board demo-board">
-		<div class="mk-message mk-default">
-			<h2 class="mk-message-title">default message</h2>
-			<div class="mk-message-body">mktoast.echo(message [,title] [,options]);</div>
-		</div>
-		<div class="mk-message mk-success">
-			<h2 class="mk-message-title">success message</h2>
-			<div class="mk-message-body">mktoast.success(message [,title] [,options]);</div>
-			<div class="mk-close"></div>
-		</div>
-		<div class="mk-message mk-danger">
-			<h2 class="mk-message-title">danger message</h2>
-			<div class="mk-message-body">mktoast.danger(message [,title] [,options]);</div>
-		</div>
-		<div class="mk-message mk-warning">
-			<h2 class="mk-message-title">warning message</h2>
-			<div class="mk-message-body">mktoast.warning(message [,title] [,options]);</div>
-		</div>
-		<div class="mk-message mk-info">
-			<h2 class="mk-message-title">info message</h2>
-			<div class="mk-message-body">mktoast.info(message [,title] [,options]);</div>
-		</div>
-		<div class="mk-message mk-default">
-			<h2 class="mk-message-title">most universal usage</h2>
-			<div class="mk-message-body">mktoast.print(options);</div>
-		</div>
-	</div>
 
-	<h3>Options</h3>
-	<table class="table table-striped">
-		<thead><tr><th>option</th><th>type</th><th>default</th><th>comment</th></tr></thead>
-		<tbody>
-			<tr><td>position</td><td>string</td><td>'right bottom'</td><td>Positioning of mktoast: left|center|right top|bottom</td></tr>
-			<tr><td>duration</td><td>milliseconds</td><td>5000</td><td>Time to keep toast message on screen</td></tr>
-			<tr><td>container</td><td>DOMElement</td><td>'empty'</td><td>Parent DOMElement of toast messages, default is body</td></tr>
-			<tr><td>type</td><td>string</td><td>'default'</td><td>Used only in mktoast.print(). Type of message: default|info|danger|success|warning. </td></tr>
-			<tr><td>message</td><td>string</td><td>'empty'</td><td>Used only in mktoast.print(). String or html code of message. </td></tr>
-			<tr><td>title</td><td>string</td><td>undefined</td><td>Used only in mktoast.print(). String of toast title. </td></tr>
-		</tbody>
-	</table>
+        <h2>Usage</h2>
 
 
-	<script>
-		mktoast.success('mktoast notifier is working','WOW!');
-		setTimeout( function(){mktoast.echo('It can show different types of messages, with or without title');}, 1000);
+        <!-- <div class="mktoast__board demo-board" style="background-color: #101D24;"> -->
+        <div class="mktoast__board demo-board">
+          <div class="mktoast-message mktoast-message_default">
+            <h2 class="mktoast-message__title">default message</h2>
+            <div class="mktoast-message__body">mktoast.echo(message [,title] [,options]);</div>
+          </div>
+          <div class="mktoast-message mktoast-message_success">
+            <h2 class="mktoast-message__title">success message</h2>
+            <div class="mktoast-message__body">mktoast.success(message [,title] [,options]);</div>
+            <div class="mk-close"></div>
+          </div>
+          <div class="mktoast-message mktoast-message_danger">
+            <h2 class="mktoast-message__title">danger message</h2>
+            <div class="mktoast-message__body">mktoast.danger(message [,title] [,options]);</div>
+          </div>
+          <div class="mktoast-message mktoast-message_warning">
+            <h2 class="mktoast-message__title">warning message</h2>
+            <div class="mktoast-message__body">mktoast.warning(message [,title] [,options]);</div>
+          </div>
+          <div class="mktoast-message mktoast-message_info">
+            <h2 class="mktoast-message__title">info message</h2>
+            <div class="mktoast-message__body">mktoast.info(message [,title] [,options]);</div>
+          </div>
+          <div class="mktoast-message mktoast-message_default">
+            <h2 class="mktoast-message__title">most universal usage</h2>
+            <div class="mktoast-message__body">mktoast.print(options);</div>
+          </div>
+        </div>
 
-		function print(type){
-			if(!type) type = 'default';
-			var options = {
-				duration: durationEl.value || 3000,
-				position: xposition.value+' '+yposition.value
-			};
-			mktoast[type](getText(),type, options);
-		}
-		
-		function getText(){
-			var t = [
-				['This is a message','It is a message','It\'s a notification','This is a kind of message','Here is message','You reading kind of notification',],
-				['intended to attract users attention','to attract attention','used to show important information','suitable to show some information','with smooth css animation','suitable for mobile devices',],
-			];
-			var i = random.int(1,3);
-			var res = '';
-			while(i){
-				res += t.map( function(texts){ return random.element(texts) } ).join(' ')+'. ';
-				i--;
-			}
-			return res;
-		}
-	</script>
-</div><!-- .container -->
+        <h3>Themes</h3>
+
+        <form id='sform' style="background-color: #eee; padding:10px; margin-bottom: 10px;" onchange="changeSettings()">
+          <div class="row">
+            <div class="col-sm-8">
+              <b>Theme</b></br>
+              <label><input type='radio' name='theme' value="default" checked> Default</label> (Material design <a href='https://www.materialui.co/colors'>colors</a>)</br>
+              <label><input type='radio' name='theme' value="dark"> Dark</label></br>
+              <label><input type='radio' name='theme' value="alt"> Alternative</label> New York fashion week <a href='https://www.w3schools.com/colors/colors_trends.asp'>colors</a></br>
+            </div>
+            <div class="col-sm-4">
+              <b>Corners</b></br>
+              <label><input type='radio' name='corners' value='default' checked> Default</label></br>
+              <label><input type='radio' name='corners' value='rounded'> Rounded</label></br>
+            </div>
+          </div>
+        </form>
+
+
+        <div id='customization-info'>
+          <p id="theme-is-default">You only need to include default styles from <span class="badge">mk-toast/dist/mk-toast.css</span></p>
+          <p id="theme-is-dark" style='display: none;'>Include <span class="badge">mk-toast/dist/mk-toast.css</span> after <span
+              class="badge">mk-toast/dist/mk-toast.css</span></p>
+          <p id="theme-is-alt" style='display: none;'>
+            Include <span class="badge">mk-toast/dist/mk-toast-alt.css</span> after default styles.
+            Colors are taken from New York fashion week and can be investigated
+            at <a href="https://www.w3schools.com/colors/colors_trends.asp">w3schools.com</a>.</p>
+
+          <p id="corner-is-rounded" style='display: none;'>Include <span class="badge">mk-toast/dist/mk-toast-rounded.css</span> after default styles.
+          </p>
+
+        </div>
+
+        <h3>Customization</h3>
+
+        <p>Styles are follows <a href='https://en.bem.info/methodology/key-concepts/'>BEM</a> methodology
+          and named in a way .mktoast-message__{element}, .mktoast-message_{modifier}.
+          Just put your styles after default styles <span class="badge">mk-toast/dist/mk-toast.css</span>
+         As an example you can take <span class="badge">mk-toast/dist/mk-toast-alt.css</span>.</p>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <pre>
+/* basic styles for all messages */
+.mktoast-message {
+  background-color: #e3dfec;
+  border: 4px double #b9b0cf;
+  color: #000000;
+  border-radius: 5px;
+}
+.mktoast-message .mktoast-message__title {
+  background-color: #39304f;
+  color: #ffffff;
+}</pre>
+          </div>
+          <div class="col-sm-4">
+            <div class="mktoast-message mktoast-message_default" style='background-color: #e3dfec; border: 4px double #b9b0cf;border-radius: 5px;color: #000000;'>
+              <h2 class="mktoast-message__title" style='background-color: #39304f;color: #ffffff;'>default message</h2>
+              <div class="mktoast-message__body">mktoast.echo(message [,title] [,options]);</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+<pre>
+/* danger message */
+.mktoast-message_danger {
+  background-color: #F48FB1;
+  border-color: #F06292;
+  color: #000;
+}
+.mktoast-message_danger .mktoast-message__title {
+  background-color: #F06292;
+}</pre>
+          </div>
+          <div class="col-sm-4">
+            <div class="mktoast-message mktoast-message_danger" style='border: 4px double #b9b0cf;border-radius: 5px;background-color: #F48FB1;border-color: #F06292;color: #000;'>
+              <h2 class="mktoast-message__title" style='background-color: #F06292;'>danger message</h2>
+              <div class="mktoast-message__body">mktoast.danger(message [,title] [,options]);</div>
+            </div>
+              Other style modifiers: <br/>
+              .mktoast-message_success <br/>
+              .mktoast-message_warning <br/>
+              .mktoast-message_info <br/>
+          </div>
+        </div>
+
+
+
+
+        <h3>Options</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>option</th>
+              <th>type</th>
+              <th>default</th>
+              <th>comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>position</td>
+              <td>string</td>
+              <td>'right bottom'</td>
+              <td>Positioning of mktoast: left|center|right top|bottom</td>
+            </tr>
+            <tr>
+              <td>duration</td>
+              <td>milliseconds</td>
+              <td>5000</td>
+              <td>Time to keep toast message on screen</td>
+            </tr>
+            <tr>
+              <td>container</td>
+              <td>DOMElement</td>
+              <td>'empty'</td>
+              <td>Parent DOMElement of toast messages, default is body</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>string</td>
+              <td>'default'</td>
+              <td>Used only in mktoast.print(). Type of message: default|info|danger|success|warning. </td>
+            </tr>
+            <tr>
+              <td>message</td>
+              <td>string</td>
+              <td>'empty'</td>
+              <td>Used only in mktoast.print(). String or html code of message. </td>
+            </tr>
+            <tr>
+              <td>title</td>
+              <td>string</td>
+              <td>undefined</td>
+              <td>Used only in mktoast.print(). String of toast title. </td>
+            </tr>
+          </tbody>
+        </table>
+  </div><!-- .container -->
+  <script charset='UTF-8' src='index.js'></script>
+
 </body>
+
 </html>

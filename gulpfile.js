@@ -1,42 +1,18 @@
+const gulp = require('gulp');
+const { srcFolder } = require('./build/config.js');
 
-const gulp		= require("gulp");
-const del		= require("del");
- 
-const uglify	= require("gulp-uglify");
-const concat	= require("gulp-concat");
-const babel		= require("gulp-babel");
-// const addsrc	= require("gulp-add-src");
-const rename	= require("gulp-rename");
-const less		= require("gulp-less");
-const LessAutoprefix = require("less-plugin-autoprefix");
-const autoprefix = new LessAutoprefix({ browsers: ["last 2 versions"] });
-const cleanCSS	= require("gulp-clean-css");
+require('./build/clean.gulp.js');
+require('./build/copy.gulp.js');
+require('./build/scss.gulp.js');
+require('./build/rollup.gulp.js');
+require('./build/sync-server.gulp.js');
 
+gulp.task('watch', function () {
+  gulp.watch([srcFolder + '*.ts'], gulp.parallel('rollup'));
+  gulp.watch([srcFolder + '*.scss', srcFolder + '**/*.scss', ], gulp.parallel('skin'));
+});
 
-gulp.task("clean", () => del(["./dist/*"]) );
+gulp.task('build', gulp.parallel('copy', 'rollup', 'skin'));
+gulp.task('serve', gulp.series('clean', 'build', gulp.parallel('watch', 'sync-server')));
 
-gulp.task("less", () =>
-	gulp.src("src/mk-toast.less")
-		.pipe(less({plugins: [autoprefix]}))
-		.pipe(gulp.dest("./dist"))
-		.pipe(cleanCSS())
-		.pipe(rename("mk-toast.min.css"))
-		.pipe(gulp.dest("./dist"))
-);
-
-gulp.task("build-es5", () =>
-	gulp.src(["src/mk-toast.js"])
-		.pipe(concat("mk-toast.js"))
-        .pipe(babel({ presets: ["@babel/env"] }))
-        .pipe(gulp.dest("dist"))
-		.pipe(uglify())
-        .pipe(rename("mk-toast.min.js"))
-        .pipe(gulp.dest("dist"))
-);
-
-gulp.task("move-types", () =>
-	gulp.src(["src/mk-toast.d.js"])
-        .pipe(gulp.dest("dist"))
-);
-
-gulp.task("build", gulp.series( "clean", gulp.parallel("build-es5", "less")) );
+gulp.task('default', gulp.series('clean', 'build'));
