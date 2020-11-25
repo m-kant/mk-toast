@@ -1,4 +1,5 @@
 mktoast.success('mktoast notifier is working', 'WOW!');
+mktoast.defaults.duration = 8000;
 [
   { type: 'default', title: 'Echo Sample', message: 'Here is Default message' },
   { type: 'success', title: 'Success (ok) Sample', message: 'Here is Success/ok message' },

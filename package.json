@@ -14,12 +14,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "notify",
     "ecosystem:Vue.js",
     "toast",
     "toastr",
-    "notification",
+    "notify",
+    "alert",
     "message",
+    "floating message",
+    "message balloon",
+    "alarm",
+    "notification",
+    "notifier",
+    "informer",
     "UI"
   ],
   "author": "m.kantemirov",
