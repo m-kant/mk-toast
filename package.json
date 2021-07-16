@@ -1,7 +1,7 @@
 {
   "name": "mk-toast",
-  "version": "2.0.0",
-  "description": "Library agnostic notifier with Vue.js connector. Smooth CSS animation with no twitching. Type definitions are included",
+  "version": "2.0.1",
+  "description": "Flash messages (notifications/toast). Library agnostic with VUE.js connector. Smooth CSS animation with no twitching.",
   "main": "dist/mk-toast.js",
   "types": "dist/mk-toast.d.ts",
   "scripts": {
@@ -15,11 +15,12 @@
   },
   "keywords": [
     "ecosystem:Vue.js",
-    "toast",
-    "toastr",
+    "flash message",
     "notify",
     "alert",
     "message",
+    "toast",
+    "toastr",
     "floating message",
     "message balloon",
     "alarm",

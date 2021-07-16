@@ -226,7 +226,7 @@
 
   function _echoArgsToOptions(type, message, title, options) {
     // if title is an option indeed
-    if (_typeof(title) === 'object') {
+    if (title && _typeof(title) === 'object') {
       options = title;
       title = null;
     }

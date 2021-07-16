@@ -54,7 +54,7 @@ function _echoArgsToOptions(
   options?: Partial<Options>,
 ) {
   // if title is an option indeed
-  if (typeof title === 'object') {
+  if (title && typeof title === 'object') {
     options = title;
     title = null;
   }
