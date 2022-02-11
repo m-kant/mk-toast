@@ -54,7 +54,7 @@
     "gulp-noop": "^1.0.1",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "rollup": "^2.33.2",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.0.3",
