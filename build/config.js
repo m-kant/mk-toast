@@ -4,7 +4,6 @@
  * -p uploadSubPath
  */
 
-const chalk = require('chalk');
 const argv = require('minimist')(process.argv.slice(2));
 
 const mode = argv['m'] || 'prod';
@@ -22,4 +21,4 @@ module.exports = {
   uploadPath,
 };
 
-console.log(`mode is ${IS_DEV ? chalk.blue('DEVELOPMENT') : chalk.green('PRODUCTION')}`);
+console.log(`mode is ${IS_DEV ?'DEVELOPMENT' : 'PRODUCTION'}`);

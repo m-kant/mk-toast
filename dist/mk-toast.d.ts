@@ -6,6 +6,9 @@ import { _closeMessage } from './utils';
  * @param opts overrides defaults for individual message
  */
 declare function print(opts: Options): Message;
+/**
+ * Publish stacked notifications at the side of screen
+ */
 declare const _default: {
     defaults: Options;
     closeMessage: typeof _closeMessage;
@@ -32,7 +35,4 @@ declare const _default: {
     /** Alias for warning */
     warn: (message: string, title?: string, options?: Partial<import("./types").ShortOptions>) => Message;
 };
-/**
- * Publish stacked notifications at the side of screen
- */
 export default _default;

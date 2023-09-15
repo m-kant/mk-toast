@@ -1,7 +1,7 @@
 /** SCSS styles */
 
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
 const prefix = require('gulp-autoprefixer');
 const noop = require('gulp-noop');

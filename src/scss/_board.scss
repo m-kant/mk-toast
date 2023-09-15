@@ -1,10 +1,12 @@
+@use 'sass:math';
+
 .mktoast__board {
   $width: 300px;
 
   position: fixed;
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
   width: $width;
-  z-index: 1002; // above leaflet.js attribution
+  z-index: 9000; // above quasar overlays
 
   // board positioning
   &.mk-bottom {
@@ -21,7 +23,7 @@
   }
   &.mk-center {
     left: 50%;
-    margin-left: -1 * $width/2;
+    margin-left: math.div(-1 * $width, 2);
   }
 
   &.mk-bottom .mktoast-message {
